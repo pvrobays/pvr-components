@@ -6,7 +6,14 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface MyComponent {
+    interface PvrButton {
+        /**
+          * The role of the button
+         */
+        "buttonRole": "button" | "submit" | "reset";
+        "buttonType": "primary" | "secondary" | "tertiary";
+    }
+    interface PvrComponent {
         /**
           * The first name
          */
@@ -22,18 +29,32 @@ export namespace Components {
     }
 }
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    interface HTMLPvrButtonElement extends Components.PvrButton, HTMLStencilElement {
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    var HTMLPvrButtonElement: {
+        prototype: HTMLPvrButtonElement;
+        new (): HTMLPvrButtonElement;
+    };
+    interface HTMLPvrComponentElement extends Components.PvrComponent, HTMLStencilElement {
+    }
+    var HTMLPvrComponentElement: {
+        prototype: HTMLPvrComponentElement;
+        new (): HTMLPvrComponentElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
+        "pvr-button": HTMLPvrButtonElement;
+        "pvr-component": HTMLPvrComponentElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
+    interface PvrButton {
+        /**
+          * The role of the button
+         */
+        "buttonRole"?: "button" | "submit" | "reset";
+        "buttonType"?: "primary" | "secondary" | "tertiary";
+    }
+    interface PvrComponent {
         /**
           * The first name
          */
@@ -48,14 +69,16 @@ declare namespace LocalJSX {
         "middle"?: string;
     }
     interface IntrinsicElements {
-        "my-component": MyComponent;
+        "pvr-button": PvrButton;
+        "pvr-component": PvrComponent;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "pvr-button": LocalJSX.PvrButton & JSXBase.HTMLAttributes<HTMLPvrButtonElement>;
+            "pvr-component": LocalJSX.PvrComponent & JSXBase.HTMLAttributes<HTMLPvrComponentElement>;
         }
     }
 }

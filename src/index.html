@@ -1,14 +1,44 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
-    <title>Stencil Component Starter</title>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"/>
+  <title>Stencil Component Starter</title>
 
-    <script type="module" src="/build/pvr-components.esm.js"></script>
-    <script nomodule src="/build/pvr-components.js"></script>
-  </head>
-  <body>
-    <my-component first="Stencil" last="'Don't call me a framework' JS"></my-component>
-  </body>
+  <link rel="stylesheet" href="/build/pvr-components.css"/>
+  <script type="module" src="/build/pvr-components.esm.js"></script>
+  <script nomodule src="/build/pvr-components.js"></script>
+</head>
+<body>
+
+<h1>PVR Components</h1>
+
+<pvr-component first="Stencil" last="'Don't call me a framework' JS"></pvr-component>
+
+<pvr-button button-type="primary">Click me!</pvr-button>
+<pvr-button button-type="secondary">Click me!</pvr-button>
+<pvr-button button-type="tertiary">Click me!</pvr-button>
+
+
+
+<h2>To do:</h2>
+<ul>
+  <li>Add SCCS?</li>
+  <li>Light vs. dark theme (theming)</li>
+  <li>Overwrite with custom CSS</li>
+  <li>Event handling</li>
+  <li>Write Tests</li>
+  <li>Create NPM package</li>
+  <li>Create react app with components</li>
+  <li>Create angular app with components</li>
+</ul>
+
+<h2>Done</h2>
+<ul>
+  <li>Add Storybook</li>
+</ul>
+
+
+
+</body>
 </html>

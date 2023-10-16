@@ -1,0 +1,9 @@
+:host {
+  display: block;
+}
+
+
+div {
+  background-color: yellow;
+  font-weight: bold;
+}
