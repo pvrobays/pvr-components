@@ -17,9 +17,14 @@ export class PvrButton {
 
   @Prop() buttonType: "primary" | "secondary" | "tertiary" = "primary";
 
+  @Prop() disabled: boolean = false;
+
   render() {
     return (
-      <button class={this.buttonType} role={this.buttonRole}>
+      <button class={this.buttonType ?? "primary"}
+              role={this.buttonRole ?? "button"}
+              disabled={this.disabled ?? false}
+      >
         <span><slot></slot></span>
       </button>
     );

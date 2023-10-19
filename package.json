@@ -20,6 +20,7 @@
   ],
   "scripts": {
     "build": "stencil build --docs",
+    "build.watch": "stencil build --watch",
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
@@ -31,6 +32,7 @@
     "@stencil/core": "^4.0.0"
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^7.4.6",
     "@storybook/addon-essentials": "^7.4.6",
     "@storybook/addon-interactions": "^7.4.6",
     "@storybook/addon-links": "^7.4.6",

@@ -11,6 +11,7 @@
 | ------------ | ------------- | ---------------------- | ---------------------------------------- | ----------- |
 | `buttonRole` | `button-role` | The role of the button | `"button" \| "reset" \| "submit"`        | `"button"`  |
 | `buttonType` | `button-type` |                        | `"primary" \| "secondary" \| "tertiary"` | `"primary"` |
+| `disabled`   | `disabled`    |                        | `boolean`                                | `false`     |
 
 
 ## Slots

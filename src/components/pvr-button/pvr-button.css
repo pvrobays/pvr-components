@@ -30,6 +30,15 @@ button {
   touch-action: manipulation;
 }
 
+button:disabled,
+button.primary:disabled,
+button.secondary:disabled,
+button.tertiary:disabled {
+  background: #CCCCCC;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
 button.primary {
   background: var(--color-primary);
 }

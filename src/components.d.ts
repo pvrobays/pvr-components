@@ -12,6 +12,7 @@ export namespace Components {
          */
         "buttonRole": "button" | "submit" | "reset";
         "buttonType": "primary" | "secondary" | "tertiary";
+        "disabled": boolean;
     }
     interface PvrComponent {
         /**
@@ -53,6 +54,7 @@ declare namespace LocalJSX {
          */
         "buttonRole"?: "button" | "submit" | "reset";
         "buttonType"?: "primary" | "secondary" | "tertiary";
+        "disabled"?: boolean;
     }
     interface PvrComponent {
         /**
