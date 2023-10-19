@@ -36,7 +36,7 @@ npm run storybook
 If you want, you can run Stencil at the same time to compile changes to the components:
 
 ```bash
-npx stencil build --watch
+npm run build.watch
 ```
 
 ### Build components for production
