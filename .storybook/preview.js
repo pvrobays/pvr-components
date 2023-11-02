@@ -1,10 +1,11 @@
 import {defineCustomElements} from '../loader';
+import { html } from 'lit';
 
 defineCustomElements();
 
 import '../src/global/global.css';
 
-/** @type { import('@storybook/html').Preview } */
+/** @type { import('@storybook/web-components').Preview } */
 const preview = {
   globalTypes: {
     theme: {
@@ -21,6 +22,7 @@ const preview = {
       },
     },
   },
+  decorators: [(story, context) => html`<div data-theme="${context.globals.theme}">${story()}</div>`],
   parameters: {
     actions: {argTypesRegex: '^on[A-Z].*'},
     controls: {

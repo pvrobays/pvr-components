@@ -1,29 +1,42 @@
-﻿export default {
+﻿import {Meta} from "@storybook/web-components";
+
+const meta: Meta = {
   title: "Components/Button",
   tags: ["autodocs"],
-  render: ({ label, ...args}) =>
-    `<pvr-button
-        button-type="${args.buttonType ?? "primary"}"
-        button-role="${args.buttonRole ?? "button"}"
-        disabled="${args.disabled ?? false}"
-        onClick="${args.onClick ?? null}">
-            ${label}
-    </pvr-button>`,
+  // component: "pvr-button",
+  render: ({label, ...args}) => {
+    const element = document.createElement('pvr-button');
+    element.onclick = args.onClick;
+    element.buttonType = args.buttonType;
+    element.buttonRole = args.buttonRole;
+    element.disabled = args.disabled;
+
+    element.textContent = label;
+    return element;
+  },
+  /*render: ({label, ...args}) => { return `<pvr-button
+      button-type="${args.buttonType ?? "primary"}"
+      button-role="${args.buttonRole ?? "button"}"
+      disabled="${args.disabled ?? false}"
+      onclick="${args.onClick ?? null}">
+          ${label}
+  </pvr-button>`},*/
   argTypes: {
     buttonType: {
-      control: { type: "select" },
+      control: {type: "select"},
       options: ["primary", "secondary", "tertiary"],
     },
     buttonRole: {
-      control: { type: "radio" },
+      control: {type: "radio"},
       options: ["button", "reset"],
     },
     disabled: {
       control: "boolean",
     },
-    onClick: { action: 'onClick' },
+    onClick: {action: "clicked"},
   }
 };
+export default meta;
 
 export const Primary = {
   //TODO PJ: add type to args?

@@ -17,12 +17,20 @@ Stencil components are just Web Components, so they work in any major framework 
 
 ## Getting Started
 
+### Develop new components with Stencil and show them in Storybook
+
+Run Stencil & Storybook in dev mode:
+
+```bash
+npm run dev
+```
+
 ### Build new components in Stencil
 
 Run Stencil in dev mode:
 
 ```bash
-npm run start
+npm run stencil.start
 ```
 
 ### Add new components to Storybook
@@ -31,12 +39,6 @@ To run Storybook, run:
 
 ```bash
 npm run storybook
-```
-
-If you want, you can run Stencil at the same time to compile changes to the components:
-
-```bash
-npm run build.watch
 ```
 
 ### Build components for production
@@ -50,7 +52,7 @@ npm run build
 To run the unit tests for the components, run:
 
 ```bash
-npm test
+npm stencil.test
 ```
 
 Need help? Check out our docs [here](https://stenciljs.com/docs/my-first-component).
