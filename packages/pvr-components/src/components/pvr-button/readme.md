@@ -13,7 +13,7 @@
 | `disabled` | `disabled` |             | `boolean`                                                                                         | `false`     |
 | `icon`     | `icon`     |             | `"check" \| "close" \| "download" \| "search" \| "settings" \| "stack" \| "sync" \| "transcribe"` | `null`      |
 | `size`     | `size`     |             | `"large" \| "normal" \| "small"`                                                                  | `"normal"`  |
-| `type`     | `type`     |             | `"primary" \| "red" \| "secondary" \| "silent"`                                                   | `"primary"` |
+| `type`     | `type`     |             | `"primary" \| "red" \| "secondary" \| "silent" \| "warning"`                                      | `"primary"` |
 
 
 ## Dependencies

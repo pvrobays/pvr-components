@@ -13,7 +13,7 @@ export namespace Components {
         "disabled": boolean;
         "icon": IconType | null;
         "size": "small" | "normal" | "large";
-        "type": "primary" | "secondary" | "silent" | "red";
+        "type": "primary" | "secondary" | "silent" | "warning" | "red";
     }
     interface PvrComponent {
         /**
@@ -67,7 +67,7 @@ declare namespace LocalJSX {
         "disabled"?: boolean;
         "icon"?: IconType | null;
         "size"?: "small" | "normal" | "large";
-        "type"?: "primary" | "secondary" | "silent" | "red";
+        "type"?: "primary" | "secondary" | "silent" | "warning" | "red";
     }
     interface PvrComponent {
         /**
