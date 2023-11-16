@@ -67,7 +67,7 @@ button:not(:disabled):hover {
 
 button.primary:disabled,
 button.secondary:disabled,
-button.red:disabled {
+button.error:disabled {
   background-color: var(--color-disabled);
   opacity: 0.5;
   color: var(--font-color-disabled);
@@ -81,12 +81,12 @@ button.secondary:not(:disabled):hover {
   background-color: var(--color-secondary-light);
 }
 
-button.red {
-  background-color: var(--color-red);
+button.danger {
+  background-color: var(--color-danger);
 }
 
-button.red:not(:disabled):hover {
-  background-color: var(--color-red-light);
+button.danger:not(:disabled):hover {
+  background-color: var(--color-danger-light);
 }
 
 button.silent {

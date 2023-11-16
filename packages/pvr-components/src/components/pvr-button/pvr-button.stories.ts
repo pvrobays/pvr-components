@@ -21,7 +21,7 @@ const meta: Meta = {
   argTypes: {
     type: {
       control: {type: "select"},
-      options: ["primary", "secondary", "silent", "red"],
+      options: ["primary", "secondary", "silent", "danger"],
       defaultValue: "primary"
     },
     size: {

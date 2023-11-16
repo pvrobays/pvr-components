@@ -39,8 +39,8 @@ body {
   --color-secondary: rgb(29, 79, 145); /*$dedalusBlue*/
   --color-secondary-light: #3061a3; /*$dedalusBlueLight*/
   --color-silent: transparent;
-  --color-red: #9a3033;
-  --color-red-light: #c1383c;
+  --color-danger: #9a3033;
+  --color-danger-light: #c1383c;
   --background-color-silent: rgba(255, 255, 255, 0.08);
   --font-color-silent: #eee;
   --font-color-silent-hover: #fff;
