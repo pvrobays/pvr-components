@@ -11,6 +11,7 @@
 | ------------- | ------------- | ----------- | ------------------------------------------------------------------------------------------------- | ----------- |
 | `icon`        | `icon`        |             | `"check" \| "close" \| "download" \| "search" \| "settings" \| "stack" \| "sync" \| "transcribe"` | `undefined` |
 | `placeholder` | `placeholder` |             | `string`                                                                                          | `undefined` |
+| `width`       | `width`       |             | `string`                                                                                          | `undefined` |
 
 
 ## Events
@@ -22,6 +23,10 @@
 
 ## Dependencies
 
+### Used by
+
+ - [pvr-autocomplete](../pvr-autocomplete)
+
 ### Depends on
 
 - [pvr-icon](../pvr-icon)
@@ -30,6 +35,7 @@
 ```mermaid
 graph TD;
   pvr-input --> pvr-icon
+  pvr-autocomplete --> pvr-input
   style pvr-input fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
