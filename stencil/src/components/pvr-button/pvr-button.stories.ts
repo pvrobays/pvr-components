@@ -1,4 +1,5 @@
 ﻿import {Meta} from "@storybook/web-components";
+import {iconTypesArray} from "../pvr-icon/icon-type";
 
 const meta: Meta = {
   title: "Components/Button",
@@ -9,18 +10,13 @@ const meta: Meta = {
     element.onclick = args.onClick;
     element.buttonType = args.buttonType;
     element.buttonRole = args.buttonRole;
+    element.buttonIcon = args.buttonIcon;
     element.disabled = args.disabled;
 
     element.textContent = label;
     return element;
   },
-  /*render: ({label, ...args}) => { return `<pvr-button
-      button-type="${args.buttonType ?? "primary"}"
-      button-role="${args.buttonRole ?? "button"}"
-      disabled="${args.disabled ?? false}"
-      onclick="${args.onClick ?? null}">
-          ${label}
-  </pvr-button>`},*/
+
   argTypes: {
     buttonType: {
       control: {type: "select"},
@@ -29,6 +25,10 @@ const meta: Meta = {
     buttonRole: {
       control: {type: "radio"},
       options: ["button", "reset"],
+    },
+    buttonIcon: {
+      control: {type: "select"},
+      options: iconTypesArray,
     },
     disabled: {
       control: "boolean",
@@ -69,3 +69,12 @@ export const Disabled = {
     disabled: true,
   }
 };
+
+export const Validate = {
+  args: {
+    buttonType: "primary",
+    buttonRole: "button",
+    label: "Button with icon",
+    buttonIcon: "validate"
+  }
+}

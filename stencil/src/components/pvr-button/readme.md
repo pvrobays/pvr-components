@@ -9,6 +9,7 @@
 
 | Property     | Attribute     | Description            | Type                                     | Default     |
 | ------------ | ------------- | ---------------------- | ---------------------------------------- | ----------- |
+| `buttonIcon` | `button-icon` |                        | `"cancel" \| "confirm"`                  | `null`      |
 | `buttonRole` | `button-role` | The role of the button | `"button" \| "reset" \| "submit"`        | `"button"`  |
 | `buttonType` | `button-type` |                        | `"primary" \| "secondary" \| "tertiary"` | `"primary"` |
 | `disabled`   | `disabled`    |                        | `boolean`                                | `false`     |
@@ -30,6 +31,19 @@
 | ---------- | ----------------------------------------------------------------------- |
 | `"native"` | The native HTML button or anchor element that wraps all child elements. |
 
+
+## Dependencies
+
+### Depends on
+
+- [pvr-icon](../pvr-icon)
+
+### Graph
+```mermaid
+graph TD;
+  pvr-button --> pvr-icon
+  style pvr-button fill:#f9f,stroke:#333,stroke-width:4px
+```
 
 ----------------------------------------------
 

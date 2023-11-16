@@ -1,4 +1,5 @@
 import {Component, h, Host, Prop} from '@stencil/core';
+import {IconType} from "../pvr-icon/icon-type";
 
 /**
  * @slot - Slot for the content of the button.
@@ -25,10 +26,19 @@ export class PvrButton {
   buttonType: "primary" | "secondary" | "tertiary" = "primary";
 
   @Prop()
+  buttonIcon: IconType | null = null;
+
+  @Prop()
   disabled: boolean = false;
 
   render() {
-    const {disabled, buttonType, buttonRole} = this
+    const {disabled, buttonType, buttonRole, buttonIcon} = this;
+
+    let buttonIconElement = null;
+    if (buttonIcon != null) {
+      buttonIconElement = <pvr-icon type={buttonIcon} />;
+    }
+
     return (
       <Host
         aria-disabled={disabled ? "true" : null}
@@ -40,12 +50,8 @@ export class PvrButton {
                 disabled={disabled}
                 part="native"
         >
-          <span class="button-inner">
-            <slot name="icon-only"></slot>
-            <slot name="start"></slot>
-            <slot></slot>
-            <slot name="end"></slot>
-          </span>
+          { buttonIconElement }
+          <slot></slot>
         </button>
       </Host>
     );
