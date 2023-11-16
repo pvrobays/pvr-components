@@ -1,6 +1,6 @@
 {
   "name": "pvr-components",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Stencil Component Starter",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
@@ -56,5 +56,6 @@
     "puppeteer": "21.5.2",
     "storybook": "^7.5.3"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "gitHead": "d5b0ee9c9a24803616f867870751e3a8ab91bfd4"
 }
