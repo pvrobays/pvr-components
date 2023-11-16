@@ -8,26 +8,39 @@ const meta: Meta = {
   render: ({label, ...args}) => {
     const element = document.createElement('pvr-button');
     element.onclick = args.onClick;
-    element.buttonType = args.buttonType;
-    element.buttonIcon = args.buttonIcon;
+    element.type = args.type;
+    element.icon = args.icon;
     element.disabled = args.disabled;
     element.border = args.border;
+    element.size = args.size;
 
     element.textContent = label;
     return element;
   },
 
   argTypes: {
-    buttonType: {
+    type: {
       control: {type: "select"},
-      options: ["primary", "secondary", "silent"],
+      options: ["primary", "secondary", "silent", "red"],
+      defaultValue: "primary"
     },
-    buttonIcon: {
+    size: {
+      control: {type: "select"},
+      options: ["small", "normal", "large"],
+      defaultValue: "normal"
+    },
+    icon: {
       control: {type: "select"},
       options: iconTypesArray,
+      defaultValue: null
     },
     disabled: {
       control: "boolean",
+      defaultValue: false
+    },
+    border: {
+      control: "boolean",
+      defaultValue: false,
     },
     onClick: {action: "clicked"},
   }
@@ -35,38 +48,36 @@ const meta: Meta = {
 export default meta;
 
 export const Primary = {
-  //TODO PJ: add type to args?
   args: {
-    buttonType: "primary",
+    type: "primary",
     label: "Button",
     disabled: false,
   }
 };
 export const Secondary = {
   args: {
-    buttonType: "secondary",
+    type: "secondary",
     label: "Button",
   }
 };
 export const Silent = {
   args: {
-    buttonType: "silent",
+    type: "silent",
     label: "Button",
   }
 };
 export const Disabled = {
   args: {
-    buttonType: "primary",
+    type: "primary",
     label: "Button",
     disabled: true,
   }
 };
 
-export const Validate = {
+export const Check = {
   args: {
-    buttonType: "primary",
-    buttonRole: "button",
+    type: "primary",
     label: "Button with icon",
-    buttonIcon: "validate"
+    icon: "check"
   }
 }

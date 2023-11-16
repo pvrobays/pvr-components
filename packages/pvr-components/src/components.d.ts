@@ -10,9 +10,10 @@ export { IconType } from "./components/pvr-icon/icon-type";
 export namespace Components {
     interface PvrButton {
         "border": boolean;
-        "buttonIcon": IconType | null;
-        "buttonType": "primary" | "secondary" | "silent";
         "disabled": boolean;
+        "icon": IconType | null;
+        "size": "small" | "normal" | "large";
+        "type": "primary" | "secondary" | "silent" | "red";
     }
     interface PvrComponent {
         /**
@@ -63,9 +64,10 @@ declare global {
 declare namespace LocalJSX {
     interface PvrButton {
         "border"?: boolean;
-        "buttonIcon"?: IconType | null;
-        "buttonType"?: "primary" | "secondary" | "silent";
         "disabled"?: boolean;
+        "icon"?: IconType | null;
+        "size"?: "small" | "normal" | "large";
+        "type"?: "primary" | "secondary" | "silent" | "red";
     }
     interface PvrComponent {
         /**

@@ -7,12 +7,13 @@
 
 ## Properties
 
-| Property     | Attribute     | Description | Type                                   | Default     |
-| ------------ | ------------- | ----------- | -------------------------------------- | ----------- |
-| `border`     | `border`      |             | `boolean`                              | `false`     |
-| `buttonIcon` | `button-icon` |             | `"cancel" \| "confirm"`                | `null`      |
-| `buttonType` | `button-type` |             | `"primary" \| "secondary" \| "silent"` | `"primary"` |
-| `disabled`   | `disabled`    |             | `boolean`                              | `false`     |
+| Property   | Attribute  | Description | Type                                                                                              | Default     |
+| ---------- | ---------- | ----------- | ------------------------------------------------------------------------------------------------- | ----------- |
+| `border`   | `border`   |             | `boolean`                                                                                         | `false`     |
+| `disabled` | `disabled` |             | `boolean`                                                                                         | `false`     |
+| `icon`     | `icon`     |             | `"check" \| "close" \| "download" \| "search" \| "settings" \| "stack" \| "sync" \| "transcribe"` | `null`      |
+| `size`     | `size`     |             | `"large" \| "normal" \| "small"`                                                                  | `"normal"`  |
+| `type`     | `type`     |             | `"primary" \| "red" \| "secondary" \| "silent"`                                                   | `"primary"` |
 
 
 ## Dependencies

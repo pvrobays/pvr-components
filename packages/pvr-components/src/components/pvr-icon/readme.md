@@ -7,9 +7,9 @@
 
 ## Properties
 
-| Property | Attribute | Description            | Type                    | Default     |
-| -------- | --------- | ---------------------- | ----------------------- | ----------- |
-| `type`   | `type`    | The role of the button | `"cancel" \| "confirm"` | `undefined` |
+| Property | Attribute | Description            | Type                                                                                              | Default     |
+| -------- | --------- | ---------------------- | ------------------------------------------------------------------------------------------------- | ----------- |
+| `type`   | `type`    | The role of the button | `"check" \| "close" \| "download" \| "search" \| "settings" \| "stack" \| "sync" \| "transcribe"` | `undefined` |
 
 
 ## Dependencies
