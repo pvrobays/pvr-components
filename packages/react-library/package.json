@@ -1,6 +1,6 @@
 {
   "name": "pvr-components-react",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "react wrapper for pvr-components",
   "keywords": [
     "react",
@@ -31,7 +31,7 @@
     "access": "public"
   },
   "dependencies": {
-    "pvr-components": "^0.0.1"
+    "pvr-components": "^0.0.2"
   },
   "repository": {
     "type": "git",
@@ -39,5 +39,6 @@
   },
   "bugs": {
     "url": "https://github.com/pvrobays/pvr-components/issues"
-  }
+  },
+  "gitHead": "d5b0ee9c9a24803616f867870751e3a8ab91bfd4"
 }
