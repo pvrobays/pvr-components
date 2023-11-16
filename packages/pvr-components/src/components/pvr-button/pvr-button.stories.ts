@@ -13,6 +13,7 @@ const meta: Meta = {
     element.disabled = args.disabled;
     element.border = args.border;
     element.size = args.size;
+    element.customIcon = args.customIcon;
 
     element.textContent = label;
     return element;
@@ -33,6 +34,10 @@ const meta: Meta = {
       control: {type: "select"},
       options: iconTypesArray,
       defaultValue: null
+    },
+    customIcon: {
+      control: {type:"text"},
+      defaultValue: null,
     },
     disabled: {
       control: "boolean",

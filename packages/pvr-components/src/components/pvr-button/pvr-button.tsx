@@ -15,6 +15,9 @@ export class PvrButton {
   icon: IconType | null = null;
 
   @Prop()
+  customIcon: string = null;
+
+  @Prop()
   disabled: boolean = false;
 
   @Prop()
@@ -24,10 +27,16 @@ export class PvrButton {
   size: "small" | "normal" | "large" = "normal";
 
   render() {
-    const {disabled, type, icon, border, size} = this;
+    const {disabled, type, icon, customIcon, border, size} = this;
 
     let iconElement = null;
-    if (icon != null) {
+    let hasIcon = false;
+
+    if (customIcon != null && customIcon.trim() != "") {
+      hasIcon = true;
+    }
+    else if (icon != null) {
+      hasIcon = true;
       iconElement = <pvr-icon type={icon} />;
     }
 
@@ -36,10 +45,11 @@ export class PvrButton {
           (" " + (type ?? "primary")) +
           (border ? " border" : "") +
           (" " + size) +
-          (iconElement ? " has-icon" : "")
+          (hasIcon ? " has-icon" : "")
         }
               disabled={disabled} >
         { iconElement }
+        { customIcon && <img class="icon" src={ customIcon } />}
         <slot></slot>
       </button>
     );

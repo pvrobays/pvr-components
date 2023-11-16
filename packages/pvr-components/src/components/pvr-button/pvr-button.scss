@@ -2,12 +2,6 @@
   display: block;
 }
 
-:host(.button-disabled) {
-  cursor: default;
-  pointer-events: none;
-}
-
-
 button {
   border-radius: 4px;
   padding: 2px 12px;
@@ -35,6 +29,15 @@ button {
 
   &.has-icon {
     padding-left: 8px;
+
+    > .icon {
+      margin-right: 7px;
+    }
+
+    img.icon {
+      max-height: 20px;
+      max-width: 20px;
+    }
   }
 
   &.small {

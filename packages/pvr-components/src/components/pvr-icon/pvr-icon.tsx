@@ -18,7 +18,7 @@ export class PvrIcon {
     const { type } = this;
 
     return (
-      <span>
+      <span class="icon">
         {type}
       </span>
     );

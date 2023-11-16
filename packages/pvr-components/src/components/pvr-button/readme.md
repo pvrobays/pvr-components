@@ -7,13 +7,14 @@
 
 ## Properties
 
-| Property   | Attribute  | Description | Type                                                                                              | Default     |
-| ---------- | ---------- | ----------- | ------------------------------------------------------------------------------------------------- | ----------- |
-| `border`   | `border`   |             | `boolean`                                                                                         | `false`     |
-| `disabled` | `disabled` |             | `boolean`                                                                                         | `false`     |
-| `icon`     | `icon`     |             | `"check" \| "close" \| "download" \| "search" \| "settings" \| "stack" \| "sync" \| "transcribe"` | `null`      |
-| `size`     | `size`     |             | `"large" \| "normal" \| "small"`                                                                  | `"normal"`  |
-| `type`     | `type`     |             | `"primary" \| "red" \| "secondary" \| "silent" \| "warning"`                                      | `"primary"` |
+| Property     | Attribute     | Description | Type                                                                                              | Default     |
+| ------------ | ------------- | ----------- | ------------------------------------------------------------------------------------------------- | ----------- |
+| `border`     | `border`      |             | `boolean`                                                                                         | `false`     |
+| `customIcon` | `custom-icon` |             | `string`                                                                                          | `null`      |
+| `disabled`   | `disabled`    |             | `boolean`                                                                                         | `false`     |
+| `icon`       | `icon`        |             | `"check" \| "close" \| "download" \| "search" \| "settings" \| "stack" \| "sync" \| "transcribe"` | `null`      |
+| `size`       | `size`        |             | `"large" \| "normal" \| "small"`                                                                  | `"normal"`  |
+| `type`       | `type`        |             | `"primary" \| "red" \| "secondary" \| "silent" \| "warning"`                                      | `"primary"` |
 
 
 ## Dependencies
