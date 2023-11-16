@@ -18,9 +18,9 @@ export class PvrIcon {
     const { type } = this;
 
     return (
-        <span class={ "pvr-icon " +  type }>
-          { type }
-        </span>
+      <span>
+        {type}
+      </span>
     );
   }
 

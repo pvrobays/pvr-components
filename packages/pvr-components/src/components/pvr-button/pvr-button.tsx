@@ -9,10 +9,10 @@ import {IconType} from "../pvr-icon/icon-type";
 export class PvrButton {
 
   @Prop()
-  buttonType: "primary" | "secondary" | "silent" = "primary";
+  type: "primary" | "secondary" | "silent" | "red" = "primary";
 
   @Prop()
-  buttonIcon: IconType | null = null;
+  icon: IconType | null = null;
 
   @Prop()
   disabled: boolean = false;
@@ -20,18 +20,26 @@ export class PvrButton {
   @Prop()
   border: boolean = false;
 
-  render() {
-    const {disabled, buttonType, buttonIcon, border} = this;
+  @Prop()
+  size: "small" | "normal" | "large" = "normal";
 
-    let buttonIconElement = null;
-    if (buttonIcon != null) {
-      buttonIconElement = <pvr-icon type={buttonIcon} />;
+  render() {
+    const {disabled, type, icon, border, size} = this;
+
+    let iconElement = null;
+    if (icon != null) {
+      iconElement = <pvr-icon type={icon} />;
     }
 
     return (
-      <button class={ "pvr-button" + (" " + (buttonType ?? "primary")) + (border ? " border" : "") }
+      <button class={ "pvr-button" +
+          (" " + (type ?? "primary")) +
+          (border ? " border" : "") +
+          (" " + size) +
+          (iconElement ? " has-icon" : "")
+        }
               disabled={disabled} >
-        { buttonIconElement }
+        { iconElement }
         <slot></slot>
       </button>
     );
