@@ -1,5 +1,11 @@
 :host {
   display: block;
+  --icon-color: var(--font-color-button);
+
+  & button.silent {
+    --font-color-button: var(--font-color-silent);
+    --icon-color: var(--font-color-silent);
+  }
 }
 
 button {
@@ -29,10 +35,7 @@ button {
 
   &.has-icon {
     padding-left: 8px;
-
-    > .icon {
-      margin-right: 7px;
-    }
+    gap: 7px;
 
     img.icon {
       max-height: 20px;

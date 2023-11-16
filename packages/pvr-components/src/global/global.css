@@ -13,7 +13,7 @@ body {
 }
 
 :root, [data-theme="light"] {
-  --font-color: #fff;
+  --font-color: black;
   --font-color-button: #eee;
   --color-primary: #209287;
   --color-primary-light: #22a195;
@@ -30,6 +30,7 @@ body {
   --color-disabled: #777;
   --font-color-disabled: rgba(0,0,0,0.5);
   --border-button-color: rgba(0,0,0,0.2);
+  --icon-color: black;
 }
 
 /*@media (prefers-color-scheme: dark) {*/
@@ -51,6 +52,7 @@ body {
   --color-disabled: #777;
   --font-color-disabled: rgba(255,255,255,0.5);
   --border-button-color: rgba(255,255,255,0.2);
+  --icon-color: white;
 }
 
 div[data-theme="light"] {
