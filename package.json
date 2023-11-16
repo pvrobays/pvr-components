@@ -4,8 +4,9 @@
   "workspaces": [
     "packages/*"
   ],
-  "dependencies": {},
   "devDependencies": {
-    "lerna": "^7.4.2"
+    "@types/node": "^20.9.0",
+    "lerna": "^7.4.2",
+    "typescript": "^5.2.2"
   }
 }
