@@ -1,4 +1,5 @@
-import { Config } from '@stencil/core';
+import {Config} from '@stencil/core';
+import {sass} from '@stencil/sass';
 import {reactOutputTarget} from "@stencil/react-output-target";
 
 export const config: Config = {
@@ -27,4 +28,7 @@ export const config: Config = {
   testing: {
     browserHeadless: "new",
   },
+  plugins: [
+    sass()
+  ]
 };

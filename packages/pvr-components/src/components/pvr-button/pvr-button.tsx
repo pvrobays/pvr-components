@@ -3,7 +3,7 @@ import {IconType} from "../pvr-icon/icon-type";
 
 @Component({
   tag: 'pvr-button',
-  styleUrl: 'pvr-button.css',
+  styleUrl: 'pvr-button.scss',
   shadow: true,
 })
 export class PvrButton {
