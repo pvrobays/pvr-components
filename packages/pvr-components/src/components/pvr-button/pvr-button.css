@@ -67,7 +67,9 @@ button:not(:disabled):hover {
 
 button.primary:disabled,
 button.secondary:disabled,
-button.error:disabled {
+button.error:disabled,
+button.danger:disabled,
+button.warning:disabled {
   background-color: var(--color-disabled);
   opacity: 0.5;
   color: var(--font-color-disabled);
