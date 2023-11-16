@@ -5,14 +5,15 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { IconType } from "./components/pvr-icon/icon-type";
+export { IconType } from "./components/pvr-icon/icon-type";
 export namespace Components {
     interface PvrButton {
-        /**
-          * The role of the button
-         */
-        "buttonRole": "button" | "submit" | "reset";
-        "buttonType": "primary" | "secondary" | "tertiary";
+        "border": boolean;
         "disabled": boolean;
+        "icon": IconType | null;
+        "size": "small" | "normal" | "large";
+        "type": "primary" | "secondary" | "silent" | "red";
     }
     interface PvrComponent {
         /**
@@ -28,6 +29,12 @@ export namespace Components {
          */
         "middle": string;
     }
+    interface PvrIcon {
+        /**
+          * The role of the button
+         */
+        "type": IconType;
+    }
 }
 declare global {
     interface HTMLPvrButtonElement extends Components.PvrButton, HTMLStencilElement {
@@ -42,19 +49,25 @@ declare global {
         prototype: HTMLPvrComponentElement;
         new (): HTMLPvrComponentElement;
     };
+    interface HTMLPvrIconElement extends Components.PvrIcon, HTMLStencilElement {
+    }
+    var HTMLPvrIconElement: {
+        prototype: HTMLPvrIconElement;
+        new (): HTMLPvrIconElement;
+    };
     interface HTMLElementTagNameMap {
         "pvr-button": HTMLPvrButtonElement;
         "pvr-component": HTMLPvrComponentElement;
+        "pvr-icon": HTMLPvrIconElement;
     }
 }
 declare namespace LocalJSX {
     interface PvrButton {
-        /**
-          * The role of the button
-         */
-        "buttonRole"?: "button" | "submit" | "reset";
-        "buttonType"?: "primary" | "secondary" | "tertiary";
+        "border"?: boolean;
         "disabled"?: boolean;
+        "icon"?: IconType | null;
+        "size"?: "small" | "normal" | "large";
+        "type"?: "primary" | "secondary" | "silent" | "red";
     }
     interface PvrComponent {
         /**
@@ -70,9 +83,16 @@ declare namespace LocalJSX {
          */
         "middle"?: string;
     }
+    interface PvrIcon {
+        /**
+          * The role of the button
+         */
+        "type"?: IconType;
+    }
     interface IntrinsicElements {
         "pvr-button": PvrButton;
         "pvr-component": PvrComponent;
+        "pvr-icon": PvrIcon;
     }
 }
 export { LocalJSX as JSX };
@@ -81,6 +101,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "pvr-button": LocalJSX.PvrButton & JSXBase.HTMLAttributes<HTMLPvrButtonElement>;
             "pvr-component": LocalJSX.PvrComponent & JSXBase.HTMLAttributes<HTMLPvrComponentElement>;
+            "pvr-icon": LocalJSX.PvrIcon & JSXBase.HTMLAttributes<HTMLPvrIconElement>;
         }
     }
 }
