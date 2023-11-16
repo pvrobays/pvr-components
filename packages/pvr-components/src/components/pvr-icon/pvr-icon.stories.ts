@@ -22,6 +22,6 @@ export default meta;
 
 export const Icon = {
   args: {
-    type: "validate",
+    type: "confirm",
   }
 };

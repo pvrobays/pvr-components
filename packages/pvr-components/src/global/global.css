@@ -1,0 +1,29 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+html,
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+:root, [data-theme="light"] {
+  --font-color: #fff;
+  --color-primary: #209287; /*$dobcoGreenMedium*/
+  --color-primary-light: #3f9990; /*$dobcoGreenMediumHover*/
+  --color-secondary: rgb(29, 79, 145); /*$dedalusBlue*/
+  --color-secondary-light: #3061a3; /*$dedalusBlueLight*/
+}
+
+/*@media (prefers-color-scheme: dark) {*/
+[data-theme="dark"] {
+  --font-color: #333;
+}
+
+div[data-theme="light"] {
+  padding: 20px;
+}
+
+div[data-theme="dark"] {
+  background-color: #1f2c36;
+  padding: 20px;
+}
+

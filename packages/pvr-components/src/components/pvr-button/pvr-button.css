@@ -1,0 +1,80 @@
+:host {
+  display: block;
+}
+
+:host(.button-disabled) {
+  cursor: default;
+  pointer-events: none;
+}
+
+
+button {
+  border-radius: 4px;
+  padding: 2px 12px;
+  color: #eee;
+  text-align: center;
+  vertical-align: middle;
+  white-space: normal;
+  line-height: 26px;
+  font-size: 13.6px;
+  background-color: var(--color-primary);
+  overflow: hidden;
+  text-transform: uppercase;
+  font-weight: 700;
+  display: inline-block;
+  outline: 0;
+  border: 1px solid transparent;
+  background-repeat: no-repeat;
+  background-position: 7px center;
+  -webkit-transition: background-color 0.3s ease;
+  -moz-transition: background-color 0.3s ease;
+  -o-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
+}
+
+button:not(:disabled):hover {
+  background-color: var(--color-primary-light);
+}
+
+button:not(:disabled):hover {
+  cursor: pointer;
+  color: #fff;
+}
+
+button:disabled {
+  background-color: #777;
+  opacity: 0.5;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+button.secondary {
+  background-color: var(--color-secondary);
+}
+
+button.secondary:not(:disabled):hover {
+  background-color: var(--color-secondary-light);
+}
+
+button.silent {
+  background-color: transparent;
+  color: #333;
+}
+
+button.silent:not(:disabled):hover {
+  color: #000;
+}
+
+div[data-theme="dark"] button.silent {
+    color: #888;
+}
+
+button.silent:not(:disabled):hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+button.primary,
+button.secondary,
+button.silent {
+
+}
+

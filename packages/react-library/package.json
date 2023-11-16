@@ -1,0 +1,43 @@
+{
+  "name": "pvr-components-react",
+  "version": "0.0.0",
+  "description": "react wrapper for pvr-components",
+  "keywords": [
+    "react",
+    "webcomponents",
+    "component",
+    "library",
+    "ui"
+  ],
+  "author": "Pieter-Jan Van Robays <pieterjan.vanrobays@gmail.com>",
+  "homepage": "https://github.com/pvrobays/pvr-components#readme",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/types/index.d.ts",
+  "scripts": {
+    "test": "node ./__tests__/react-library.test.js",
+    "build": "npm run tsc",
+    "tsc": "tsc -p . --outDir ./dist"
+  },
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "dist"
+  ],
+  "pulbishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "pvr-components": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pvrobays/pvr-components.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pvrobays/pvr-components/issues"
+  }
+}

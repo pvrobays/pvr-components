@@ -1,4 +1,4 @@
-import {Component, h, Host, Prop} from '@stencil/core';
+import {Component, h, Prop} from '@stencil/core';
 import {IconType} from "./icon-type";
 
 @Component({
@@ -18,11 +18,9 @@ export class PvrIcon {
     const { type } = this;
 
     return (
-      <Host>
-          <span class={ type }>
-            { type }
-          </span>
-      </Host>
+        <span class={ "pvr-icon " +  type }>
+          { type }
+        </span>
     );
   }
 

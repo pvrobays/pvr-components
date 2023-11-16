@@ -1,4 +1,5 @@
 import { Config } from '@stencil/core';
+import {reactOutputTarget} from "@stencil/react-output-target";
 
 export const config: Config = {
   namespace: 'pvr-components',
@@ -18,6 +19,10 @@ export const config: Config = {
       type: 'www',
       serviceWorker: null, // disable service workers
     },
+    reactOutputTarget({
+      componentCorePackage: 'pvr-components',
+      proxiesFile: '../react-library/lib/components/stencil-generated/index.ts',
+    })
   ],
   testing: {
     browserHeadless: "new",
