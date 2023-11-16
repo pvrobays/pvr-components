@@ -10,6 +10,5 @@
     "typescript": "^5.2.2"
   },
   "dependencies": {
-    "@stencil/sass": "^3.0.7"
   }
 }

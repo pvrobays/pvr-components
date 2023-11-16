@@ -26,12 +26,14 @@
     "stencil.test": "stencil test --spec --e2e",
     "stencil.test.watch": "stencil test --spec --e2e --watchAll",
     "stencil.watch": "stencil build --watch",
+    "stencil.watch.dev": "stencil build --dev --watch",
     "storybook": "storybook dev -p 6006",
     "storybook.build": "storybook build"
   },
   "dependencies": {
     "@ionic/core": "^7.5.5",
-    "@stencil/core": "^4.7.2"
+    "@stencil/core": "^4.7.2",
+    "@stencil/sass": "^3.0.7"
   },
   "devDependencies": {
     "@stencil/react-output-target": "^0.5.3",
