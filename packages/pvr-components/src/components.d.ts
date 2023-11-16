@@ -35,6 +35,14 @@ export namespace Components {
          */
         "type": IconType;
     }
+    interface PvrInput {
+        "icon"?: IconType;
+        "placeholder"?: string;
+    }
+}
+export interface PvrInputCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLPvrInputElement;
 }
 declare global {
     interface HTMLPvrButtonElement extends Components.PvrButton, HTMLStencilElement {
@@ -55,10 +63,28 @@ declare global {
         prototype: HTMLPvrIconElement;
         new (): HTMLPvrIconElement;
     };
+    interface HTMLPvrInputElementEventMap {
+        "pvrKeyPress": any;
+    }
+    interface HTMLPvrInputElement extends Components.PvrInput, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLPvrInputElementEventMap>(type: K, listener: (this: HTMLPvrInputElement, ev: PvrInputCustomEvent<HTMLPvrInputElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLPvrInputElementEventMap>(type: K, listener: (this: HTMLPvrInputElement, ev: PvrInputCustomEvent<HTMLPvrInputElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLPvrInputElement: {
+        prototype: HTMLPvrInputElement;
+        new (): HTMLPvrInputElement;
+    };
     interface HTMLElementTagNameMap {
         "pvr-button": HTMLPvrButtonElement;
         "pvr-component": HTMLPvrComponentElement;
         "pvr-icon": HTMLPvrIconElement;
+        "pvr-input": HTMLPvrInputElement;
     }
 }
 declare namespace LocalJSX {
@@ -89,10 +115,16 @@ declare namespace LocalJSX {
          */
         "type"?: IconType;
     }
+    interface PvrInput {
+        "icon"?: IconType;
+        "onPvrKeyPress"?: (event: PvrInputCustomEvent<any>) => void;
+        "placeholder"?: string;
+    }
     interface IntrinsicElements {
         "pvr-button": PvrButton;
         "pvr-component": PvrComponent;
         "pvr-icon": PvrIcon;
+        "pvr-input": PvrInput;
     }
 }
 export { LocalJSX as JSX };
@@ -102,6 +134,7 @@ declare module "@stencil/core" {
             "pvr-button": LocalJSX.PvrButton & JSXBase.HTMLAttributes<HTMLPvrButtonElement>;
             "pvr-component": LocalJSX.PvrComponent & JSXBase.HTMLAttributes<HTMLPvrComponentElement>;
             "pvr-icon": LocalJSX.PvrIcon & JSXBase.HTMLAttributes<HTMLPvrIconElement>;
+            "pvr-input": LocalJSX.PvrInput & JSXBase.HTMLAttributes<HTMLPvrInputElement>;
         }
     }
 }

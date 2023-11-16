@@ -1,4 +1,5 @@
 import { Component, Event, EventEmitter, h, Prop } from "@stencil/core";
+import {IconType} from "../pvr-icon/icon-type";
 // import { ChangeEvent } from "react";
 
 @Component({
@@ -12,7 +13,7 @@ export class PvrInput {
   placeholder?: string;
 
   @Prop()
-  icon?: "confirm" | "cancel";
+  icon?: IconType;
 
   @Event()
   pvrKeyPress: EventEmitter;

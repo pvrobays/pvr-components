@@ -17,11 +17,13 @@
 ### Used by
 
  - [pvr-button](../pvr-button)
+ - [pvr-input](../pvr-input)
 
 ### Graph
 ```mermaid
 graph TD;
   pvr-button --> pvr-icon
+  pvr-input --> pvr-icon
   style pvr-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
