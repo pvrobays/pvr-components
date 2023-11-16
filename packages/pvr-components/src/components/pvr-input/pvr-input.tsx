@@ -17,12 +17,17 @@ export class PvrInput {
   @Event()
   pvrKeyPress: EventEmitter;
 
+  emitValueChange(event?: Event) {
+    // @ts-ignore
+    this.pvrKeyPress && this.pvrKeyPress.emit({ value: event.target.value, event })
+  }
+
   render() {
     const { placeholder, icon } = this;
     return (
       <div>
         { icon ? <pvr-icon type={icon} /> : '' }
-        <input placeholder={placeholder ?? ""} onKeyUp={e => this.pvrKeyPress && this.pvrKeyPress.emit(e)} />
+        <input placeholder={placeholder ?? ""} onKeyUp={e => this.emitValueChange(e)} />
       </div>
     );
   }
