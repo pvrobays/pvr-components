@@ -17,7 +17,7 @@
 
   <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
 <!--  <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>-->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" />
+<!--  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" />-->
 </head>
 <body>
 
@@ -29,15 +29,15 @@
 <pvr-button button-type="secondary">Click me!</pvr-button>
 <pvr-button button-type="tertiary">Click me!</pvr-button>
 <pvr-button button-type="primary" disabled onclick="myClick(event)">Click me!</pvr-button>
-<ion-button onClick="myClick(event)">Ion button</ion-button>
-<ion-button onClick="myClick(event)" disabled>Ion button</ion-button>
+<!--<ion-button onClick="myClick(event)">Ion button</ion-button>-->
+<!--<ion-button onClick="myClick(event)" disabled>Ion button</ion-button>-->
 
 <div style="display: flex; flex-direction: row; width: 100%; justify-content: space-around;">
-<div data-theme="dark" style="color-scheme: dark; flex-grow: 1; background-color: #111; ">
+<div data-theme="dark" style="flex-grow: 1; background-color: #111; ">
   <h3 style="color: white;">Always dark</h3>
   <pvr-button button-type="secondary">Click me!</pvr-button>
 </div>
-<div data-theme="light" style="color-scheme: light; flex-grow: 1;">
+<div data-theme="light" style="flex-grow: 1;">
   <h3>Always light</h3>
   <pvr-button button-type="secondary">Click me!</pvr-button>
 </div>
@@ -49,20 +49,24 @@
 <h2>To do:</h2>
 <ul>
   <li>Add SCCS?</li>
-  <li>Light vs. dark theme (theming)</li>
-  <li>Overwrite with custom CSS</li>
+  <li>Theme component</li>
+  <li>Create new components!</li>
+  <li>Create nested components</li>
   <li>Event handling</li>
-  <li>Write Tests</li>
   <li>Create NPM package</li>
+  <li>Separate libraries for React/Angular/...</li>
   <li>Create react app with components</li>
   <li>Create angular app with components</li>
+  <li>Overwrite with custom CSS</li>
   <li>Add component with state</li>
+  <li>Write Tests</li>
 </ul>
 
 <h2>Done</h2>
 <ul>
   <li>Add Storybook</li>
   <li>Pass onClick handlers</li>
+  <li>Light vs. dark theme (theming)</li>
 </ul>
 
 
