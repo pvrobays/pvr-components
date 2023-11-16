@@ -1,5 +1,12 @@
-:host {
-  display: block;
+span.pvr-icon {
+  font-weight: bold;
 }
 
 
+.pvr-icon.cancel {
+  background-size: 18px;
+}
+
+.pvr-icon.confirm {
+  background-size: 18px;
+}

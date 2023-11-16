@@ -9,9 +9,9 @@ const meta: Meta = {
     const element = document.createElement('pvr-button');
     element.onclick = args.onClick;
     element.buttonType = args.buttonType;
-    element.buttonRole = args.buttonRole;
     element.buttonIcon = args.buttonIcon;
     element.disabled = args.disabled;
+    element.border = args.border;
 
     element.textContent = label;
     return element;
@@ -20,11 +20,7 @@ const meta: Meta = {
   argTypes: {
     buttonType: {
       control: {type: "select"},
-      options: ["primary", "secondary", "tertiary"],
-    },
-    buttonRole: {
-      control: {type: "radio"},
-      options: ["button", "reset"],
+      options: ["primary", "secondary", "silent"],
     },
     buttonIcon: {
       control: {type: "select"},
@@ -42,30 +38,26 @@ export const Primary = {
   //TODO PJ: add type to args?
   args: {
     buttonType: "primary",
-    buttonRole: "button",
-    label: "Primary button",
+    label: "Button",
     disabled: false,
   }
 };
 export const Secondary = {
   args: {
     buttonType: "secondary",
-    buttonRole: "button",
-    label: "Secondary button",
+    label: "Button",
   }
 };
-export const Tertiary = {
+export const Silent = {
   args: {
-    buttonType: "tertiary",
-    buttonRole: "button",
-    label: "Tertiary button",
+    buttonType: "silent",
+    label: "Button",
   }
 };
 export const Disabled = {
   args: {
     buttonType: "primary",
-    buttonRole: "button",
-    label: "Disabled button",
+    label: "Button",
     disabled: true,
   }
 };
