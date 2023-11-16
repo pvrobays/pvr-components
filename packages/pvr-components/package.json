@@ -20,7 +20,7 @@
   ],
   "scripts": {
     "build": "stencil build --docs",
-    "dev": "npm-run-all --parallel stencil.watch stencil.watch.dev storybook",
+    "dev": "npm-run-all --parallel stencil.watch storybook",
     "stencil.generate": "stencil generate",
     "stencil.start": "stencil build --dev --watch --serve",
     "stencil.test": "stencil test --spec --e2e",
