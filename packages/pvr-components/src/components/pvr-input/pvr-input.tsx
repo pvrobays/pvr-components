@@ -1,22 +1,18 @@
 import { Component, Event, EventEmitter, h, Prop } from "@stencil/core";
-import {IconType} from "../pvr-icon/icon-type";
-// import { ChangeEvent } from "react";
+import { IconType } from "../pvr-icon/icon-type";
 
 @Component({
   tag: 'pvr-input',
-  // styleUrl: 'pvr-input.css',
+  styleUrl: 'pvr-input.css',
   shadow: true
 })
 
 export class PvrInput {
-  @Prop()
-  placeholder?: string;
+  @Prop() placeholder?: string;
+  @Prop() icon?: IconType;
+  @Prop() width: string;
 
-  @Prop()
-  icon?: IconType;
-
-  @Event()
-  pvrKeyPress: EventEmitter;
+  @Event() pvrKeyPress: EventEmitter;
 
   emitValueChange(event?: Event) {
     // @ts-ignore
@@ -26,10 +22,10 @@ export class PvrInput {
   render() {
     const { placeholder, icon } = this;
     return (
-      <div>
+      <span class="input">
         { icon ? <pvr-icon type={icon} /> : '' }
-        <input placeholder={placeholder ?? ""} onKeyUp={e => this.emitValueChange(e)} />
-      </div>
+        <input style={{width: this.width ? this.width+'px' : 'initial'}} placeholder={placeholder ?? ""} onKeyUp={e => this.emitValueChange(e)} />
+      </span>
     );
   }
 }

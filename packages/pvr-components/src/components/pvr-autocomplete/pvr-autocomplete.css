@@ -1,0 +1,22 @@
+.autocomplete {
+  position: relative;
+}
+
+.dropdown {
+  border-radius: 4px;
+  box-shadow: 0px 0px 4px black;
+  position: absolute;
+  box-sizing: border-box;
+  min-width: 100%;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.dropdown > div {
+  padding: 5px;
+  user-select: none;
+}
+.dropdown > div:not(.no-result):hover {
+  cursor: pointer;
+  background-color: lightblue;
+}
