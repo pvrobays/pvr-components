@@ -7,29 +7,26 @@
 
 ## Properties
 
-| Property     | Attribute     | Description            | Type                                     | Default     |
-| ------------ | ------------- | ---------------------- | ---------------------------------------- | ----------- |
-| `buttonRole` | `button-role` | The role of the button | `"button" \| "reset" \| "submit"`        | `"button"`  |
-| `buttonType` | `button-type` |                        | `"primary" \| "secondary" \| "tertiary"` | `"primary"` |
-| `disabled`   | `disabled`    |                        | `boolean`                                | `false`     |
+| Property     | Attribute     | Description | Type                                   | Default     |
+| ------------ | ------------- | ----------- | -------------------------------------- | ----------- |
+| `border`     | `border`      |             | `boolean`                              | `false`     |
+| `buttonIcon` | `button-icon` |             | `"cancel" \| "confirm"`                | `null`      |
+| `buttonType` | `button-type` |             | `"primary" \| "secondary" \| "silent"` | `"primary"` |
+| `disabled`   | `disabled`    |             | `boolean`                              | `false`     |
 
 
-## Slots
+## Dependencies
 
-| Slot          | Description                                             |
-| ------------- | ------------------------------------------------------- |
-|               | Slot for the content of the button.                     |
-| `"end"`       | Content is placed to the right of the button text.      |
-| `"icon-only"` | Should be used on an icon in a button that has no text. |
-| `"start"`     | Content is placed to the left of the button text.       |
+### Depends on
 
+- [pvr-icon](../pvr-icon)
 
-## Shadow Parts
-
-| Part       | Description                                                             |
-| ---------- | ----------------------------------------------------------------------- |
-| `"native"` | The native HTML button or anchor element that wraps all child elements. |
-
+### Graph
+```mermaid
+graph TD;
+  pvr-button --> pvr-icon
+  style pvr-button fill:#f9f,stroke:#333,stroke-width:4px
+```
 
 ----------------------------------------------
 

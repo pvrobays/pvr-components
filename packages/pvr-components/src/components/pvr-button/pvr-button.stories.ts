@@ -1,4 +1,5 @@
 ﻿import {Meta} from "@storybook/web-components";
+import {iconTypesArray} from "../pvr-icon/icon-type";
 
 const meta: Meta = {
   title: "Components/Button",
@@ -8,27 +9,22 @@ const meta: Meta = {
     const element = document.createElement('pvr-button');
     element.onclick = args.onClick;
     element.buttonType = args.buttonType;
-    element.buttonRole = args.buttonRole;
+    element.buttonIcon = args.buttonIcon;
     element.disabled = args.disabled;
+    element.border = args.border;
 
     element.textContent = label;
     return element;
   },
-  /*render: ({label, ...args}) => { return `<pvr-button
-      button-type="${args.buttonType ?? "primary"}"
-      button-role="${args.buttonRole ?? "button"}"
-      disabled="${args.disabled ?? false}"
-      onclick="${args.onClick ?? null}">
-          ${label}
-  </pvr-button>`},*/
+
   argTypes: {
     buttonType: {
       control: {type: "select"},
-      options: ["primary", "secondary", "tertiary"],
+      options: ["primary", "secondary", "silent"],
     },
-    buttonRole: {
-      control: {type: "radio"},
-      options: ["button", "reset"],
+    buttonIcon: {
+      control: {type: "select"},
+      options: iconTypesArray,
     },
     disabled: {
       control: "boolean",
@@ -42,30 +38,35 @@ export const Primary = {
   //TODO PJ: add type to args?
   args: {
     buttonType: "primary",
-    buttonRole: "button",
-    label: "Primary button",
+    label: "Button",
     disabled: false,
   }
 };
 export const Secondary = {
   args: {
     buttonType: "secondary",
-    buttonRole: "button",
-    label: "Secondary button",
+    label: "Button",
   }
 };
-export const Tertiary = {
+export const Silent = {
   args: {
-    buttonType: "tertiary",
-    buttonRole: "button",
-    label: "Tertiary button",
+    buttonType: "silent",
+    label: "Button",
   }
 };
 export const Disabled = {
   args: {
     buttonType: "primary",
-    buttonRole: "button",
-    label: "Disabled button",
+    label: "Button",
     disabled: true,
   }
 };
+
+export const Validate = {
+  args: {
+    buttonType: "primary",
+    buttonRole: "button",
+    label: "Button with icon",
+    buttonIcon: "validate"
+  }
+}
