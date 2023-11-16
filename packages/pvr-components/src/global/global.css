@@ -15,13 +15,15 @@ body {
 :root, [data-theme="light"] {
   --font-color: #fff;
   --font-color-button: #eee;
-  --color-primary: #209287; /*$dobcoGreenMedium*/
-  --color-primary-light: #3f9990; /*$dobcoGreenMediumHover*/
-  --color-secondary: rgb(29, 79, 145); /*$dedalusBlue*/
-  --color-secondary-light: #3061a3; /*$dedalusBlueLight*/
+  --color-primary: #209287;
+  --color-primary-light: #22a195;
+  --color-secondary: rgb(29, 79, 145);
+  --color-secondary-light: #3061a3;
   --color-silent: transparent;
-  --color-red: #9a3033;
-  --color-red-light: #c1383c;
+  --color-danger: #9a3033;
+  --color-danger-light: #c1383c;
+  --color-warning: #A77200;
+  --color-warning-light: #c78800;
   --background-color-silent: rgba(0, 0, 0, 0.08);
   --font-color-silent: #333;
   --font-color-silent-hover: #222;
@@ -34,13 +36,15 @@ body {
 [data-theme="dark"] {
   --font-color: #eee;
   --font-color-button: #eee;
-  --color-primary: #209287; /*$dobcoGreenMedium*/
-  --color-primary-light: #3f9990; /*$dobcoGreenMediumHover*/
-  --color-secondary: rgb(29, 79, 145); /*$dedalusBlue*/
-  --color-secondary-light: #3061a3; /*$dedalusBlueLight*/
+  --color-primary: #209287;
+  --color-primary-light: #22a195;
+  --color-secondary: rgb(29, 79, 145);
+  --color-secondary-light: #3061a3;
   --color-silent: transparent;
   --color-danger: #9a3033;
   --color-danger-light: #c1383c;
+  --color-warning: #A77200;
+  --color-warning-light: #c78800;
   --background-color-silent: rgba(255, 255, 255, 0.08);
   --font-color-silent: #eee;
   --font-color-silent-hover: #fff;

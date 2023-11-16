@@ -9,7 +9,7 @@ import {IconType} from "../pvr-icon/icon-type";
 export class PvrButton {
 
   @Prop()
-  type: "primary" | "secondary" | "silent" | "red" = "primary";
+  type: "primary" | "secondary" | "silent" | "warning" | "red" = "primary";
 
   @Prop()
   icon: IconType | null = null;

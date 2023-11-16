@@ -6,14 +6,16 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { IconType } from "./components/pvr-icon/icon-type";
+import { PvrMultiSelectOptions } from "./components/pvr-multiselect/pvr-multiselect";
 export { IconType } from "./components/pvr-icon/icon-type";
+export { PvrMultiSelectOptions } from "./components/pvr-multiselect/pvr-multiselect";
 export namespace Components {
     interface PvrButton {
         "border": boolean;
         "disabled": boolean;
         "icon": IconType | null;
         "size": "small" | "normal" | "large";
-        "type": "primary" | "secondary" | "silent" | "red";
+        "type": "primary" | "secondary" | "silent" | "warning" | "red";
     }
     interface PvrComponent {
         /**
@@ -39,10 +41,17 @@ export namespace Components {
         "icon"?: IconType;
         "placeholder"?: string;
     }
+    interface PvrMultiselect {
+        "options": PvrMultiSelectOptions;
+    }
 }
 export interface PvrInputCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLPvrInputElement;
+}
+export interface PvrMultiselectCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLPvrMultiselectElement;
 }
 declare global {
     interface HTMLPvrButtonElement extends Components.PvrButton, HTMLStencilElement {
@@ -80,11 +89,29 @@ declare global {
         prototype: HTMLPvrInputElement;
         new (): HTMLPvrInputElement;
     };
+    interface HTMLPvrMultiselectElementEventMap {
+        "optionsChanged": PvrMultiSelectOptions;
+    }
+    interface HTMLPvrMultiselectElement extends Components.PvrMultiselect, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLPvrMultiselectElementEventMap>(type: K, listener: (this: HTMLPvrMultiselectElement, ev: PvrMultiselectCustomEvent<HTMLPvrMultiselectElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLPvrMultiselectElementEventMap>(type: K, listener: (this: HTMLPvrMultiselectElement, ev: PvrMultiselectCustomEvent<HTMLPvrMultiselectElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLPvrMultiselectElement: {
+        prototype: HTMLPvrMultiselectElement;
+        new (): HTMLPvrMultiselectElement;
+    };
     interface HTMLElementTagNameMap {
         "pvr-button": HTMLPvrButtonElement;
         "pvr-component": HTMLPvrComponentElement;
         "pvr-icon": HTMLPvrIconElement;
         "pvr-input": HTMLPvrInputElement;
+        "pvr-multiselect": HTMLPvrMultiselectElement;
     }
 }
 declare namespace LocalJSX {
@@ -93,7 +120,7 @@ declare namespace LocalJSX {
         "disabled"?: boolean;
         "icon"?: IconType | null;
         "size"?: "small" | "normal" | "large";
-        "type"?: "primary" | "secondary" | "silent" | "red";
+        "type"?: "primary" | "secondary" | "silent" | "warning" | "red";
     }
     interface PvrComponent {
         /**
@@ -120,11 +147,16 @@ declare namespace LocalJSX {
         "onPvrKeyPress"?: (event: PvrInputCustomEvent<any>) => void;
         "placeholder"?: string;
     }
+    interface PvrMultiselect {
+        "onOptionsChanged"?: (event: PvrMultiselectCustomEvent<PvrMultiSelectOptions>) => void;
+        "options"?: PvrMultiSelectOptions;
+    }
     interface IntrinsicElements {
         "pvr-button": PvrButton;
         "pvr-component": PvrComponent;
         "pvr-icon": PvrIcon;
         "pvr-input": PvrInput;
+        "pvr-multiselect": PvrMultiselect;
     }
 }
 export { LocalJSX as JSX };
@@ -135,6 +167,7 @@ declare module "@stencil/core" {
             "pvr-component": LocalJSX.PvrComponent & JSXBase.HTMLAttributes<HTMLPvrComponentElement>;
             "pvr-icon": LocalJSX.PvrIcon & JSXBase.HTMLAttributes<HTMLPvrIconElement>;
             "pvr-input": LocalJSX.PvrInput & JSXBase.HTMLAttributes<HTMLPvrInputElement>;
+            "pvr-multiselect": LocalJSX.PvrMultiselect & JSXBase.HTMLAttributes<HTMLPvrMultiselectElement>;
         }
     }
 }
