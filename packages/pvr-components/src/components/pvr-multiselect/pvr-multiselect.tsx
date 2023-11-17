@@ -1,24 +1,8 @@
 import { Component, Event, EventEmitter, FunctionalComponent, Prop, h } from "@stencil/core";
-
-export type PvrMultiSelectOptions = (PvrMultiSelectGroup|PvrMultiSelectOption)[];
-export interface PvrMultiSelectGroup {
-  groupID?: number,
-  groupName: string,
-  selected?: boolean,
-  options: PvrMultiSelectOption[],
-};
-export interface PvrMultiSelectOption {
-  optionID?: number
-  optionName: string,
-  selected?: boolean
-};
-
-const isGroup = (item: PvrMultiSelectGroup|PvrMultiSelectOption): item is PvrMultiSelectGroup => {
-  return (item as PvrMultiSelectGroup).groupName !== undefined;
-}
+import { PvrMultiSelectEntry, PvrMultiSelectGroup, PvrMultiSelectGroup as PvrMultiSelectGroupType, PvrMultiSelectOption as PvrMultiSelectOptionType, isGroup } from "./PvrMultiSelect";
 
 export interface PvrMultiSelectProps {
-  options: PvrMultiSelectOptions
+  options: PvrMultiSelectEntry[]
 }
 
 @Component({
@@ -28,89 +12,96 @@ export interface PvrMultiSelectProps {
 })
 export class PvrMultiSelect {
 
-  @Prop({mutable: true}) options: PvrMultiSelectOptions;
-  @Event() optionsChanged: EventEmitter<PvrMultiSelectOptions>;
+  @Prop({mutable: true}) options: PvrMultiSelectEntry[];
+  @Event() optionsChanged: EventEmitter<PvrMultiSelectEntry[]>;
 
-   onGroupChange(group: PvrMultiSelectGroup, selected: boolean): void {
-    const changedGroup = this.options.find(o => o === group) as PvrMultiSelectGroup;
-    changedGroup.selected = selected;
-    changedGroup.options = {
-      ...changedGroup.options.map(o => ({...o, selected: selected}))
-    };
+   private onGroupChange(group: PvrMultiSelectGroupType, selected: boolean): void {
+    const affectedGroup = this.options.find(o => o.name === group.name);
+    if (!affectedGroup || !isGroup(affectedGroup))
+      throw Error("Something went terribly wrong");
 
-    const newOptions = [
-      ...(this.options.filter(o => o !== changedGroup)), changedGroup
-    ];
-    this.options = newOptions;
+      this.updateGroup(affectedGroup, selected);
+
+      this.setNewOptions(this.options);
   }
 
-  private onOptionChange(_option: PvrMultiSelectOption, _selected: boolean): void {
+  private updateGroup(group: PvrMultiSelectGroupType, selected?: boolean): void {
+    group.options.forEach(o => o.selected = selected ?? o.selected);
 
+    const atLeastOneDisabled = group.options.map(o => o.selected ?? false).filter(s => !s).length > 0;
+    const newGroupSelectStatus = selected ?? !atLeastOneDisabled;
+    group.selected = newGroupSelectStatus;
+  }
+
+  private onOptionChange(option: PvrMultiSelectOptionType, selected: boolean): void {
+    const affectedOption = this.options.flatMap(o => isGroup(o) ? o.options : o).find(o => o.name === option.name);
+    affectedOption.selected = selected;
+
+    const affectedGroup = this.options.find(o => isGroup(o) && o.options.some(o => o.name === option.name));
+    if (affectedGroup)
+      this.updateGroup(affectedGroup as PvrMultiSelectGroup);
+
+    this.setNewOptions(this.options);
+  }
+
+  private setNewOptions = (options: PvrMultiSelectEntry[]) => {
+    this.options = [...this.options];
+    this.optionsChanged.emit(options);
+  }
+
+  private createComponent(entry: PvrMultiSelectEntry): JSX.Element  {
+    const {ID, name, selected} = entry;
+    const optionChange = this.onOptionChange.bind(this);
+    const groupChange = this.onGroupChange.bind(this);
+
+    if (isGroup(entry)) {
+      const { options } = entry;
+      return <PvrMultiSelectGroup ID={ID} name={name} selected={selected} options={options} onOptionChange={optionChange} onGroupChange={groupChange}/>
+    }
+    return <PvrMultiSelectOption ID={ID} name={name} selected={selected} onOptionChange={optionChange}/>
+  }
+
+  componentWillRender() {
+    // Will fix any misconfigs being passed for groups
+    const allGroups = this.options.filter(o => isGroup(o));
+    allGroups.forEach(g => this.updateGroup(g as PvrMultiSelectGroupType));
+    this.options = [...this.options];
   }
 
   render() {
-    const groups = this.options.filter(o => isGroup(o)).map(g => g as PvrMultiSelectGroup);
-    const groupComponents = groups
-      .map(({groupID, groupName, selected, options}) => (
-        <PvrMultiSelectGroup
-          groupID={groupID}
-          groupName={groupName}
-          selected={selected}
-          options={options}
-          onGroupChange={this.onGroupChange}
-          onOptionChange={this.onOptionChange}
-        />));
-    const nonGroupOptions = this.options.filter(o => !isGroup(o)).map(g => g as PvrMultiSelectOption);
-    const options = nonGroupOptions
-        .map(({optionID, optionName, selected}) => (
-          <PvrMultiSelectOption
-            optionID={optionID}
-            optionName={optionName}
-            selected={selected}
-            onOptionChange={this.onOptionChange}
-          />
-        ))
-
     return (
       <div class="pvr-multiselect">
         <input />{/* <pvr-search ></pvr-search> */}
-        {...groupComponents}
-        {...options}
+        {...this.options.map(o => this.createComponent(o))}
       </div>
     )
   }
 }
 
-export interface PvrMultiSelectGroupProps extends PvrMultiSelectGroup {
-  onOptionChange: (option: PvrMultiSelectOption, selected: boolean) => void,
-  onGroupChange: (group: PvrMultiSelectGroup, selected: boolean) => void
+export interface PvrMultiSelectGroupProps extends PvrMultiSelectGroupType {
+  onOptionChange: (option: PvrMultiSelectOptionType, selected: boolean) => void,
+  onGroupChange: (group: PvrMultiSelectGroupType, selected: boolean) => void
 }
 
 const PvrMultiSelectGroup: FunctionalComponent<PvrMultiSelectGroupProps> = (props) => {
-
-  const {groupID, groupName, options, onOptionChange, onGroupChange, selected } = props;
+  const {ID, name, options, onOptionChange, onGroupChange, selected } = props;
 
   const selectGroupHandler = (selected: boolean) => {
     onGroupChange(props, selected);
   }
 
-  const groupOptions = options.map(({optionID, optionName, selected}) => (
-    <PvrMultiSelectOption
-      optionID={optionID}
-      optionName={optionName}
-      onOptionChange={onOptionChange}
-      selected={selected}
-    />
+  const groupOptions = options.map(({ID, name, selected}) => (
+    <PvrMultiSelectOption ID={ID} name={name} onOptionChange={onOptionChange} selected={selected}/>
   ))
 
   const groupIsSelected = selected ?? false;
 
   return (
-    <div data-groupID={groupID} class="pvr-multiselect__group">
+    <div data-groupID={ID} class="pvr-multiselect__group">
       <PvrMultiSelectOption
-        data-groupID={groupID}
-        optionID={56}
-        optionName={groupName}
+        data-groupID={ID}
+        ID={56}
+        name={name}
         onOptionChange={(_, selected) => selectGroupHandler(selected)}
         selected={groupIsSelected ?? undefined}
       />
@@ -119,20 +110,20 @@ const PvrMultiSelectGroup: FunctionalComponent<PvrMultiSelectGroupProps> = (prop
   )
 }
 
-export interface PvrMultiSelectIOptionProps extends PvrMultiSelectOption {
+export interface PvrMultiSelectIOptionProps extends PvrMultiSelectOptionType {
   onOptionChange: (option: PvrMultiSelectIOptionProps, selected: boolean) => void
 }
 
 const PvrMultiSelectOption: FunctionalComponent<PvrMultiSelectIOptionProps> = (props) => {
 
-  const { optionID, optionName, selected, onOptionChange } = props;
+  const { ID, name, selected, onOptionChange } = props;
 
   const isSelected = selected ?? false;
 
   return (
     <div class="pvr-multiselect__option">
-      <label htmlFor={`${optionID}`} data-optionID={optionID}>{optionName}</label>
-      <input id={`${optionID}`} type="checkbox" onChange={() => onOptionChange(props, !isSelected)} checked={isSelected ?? undefined}/>
+      <label htmlFor={`${ID}`} data-optionID={ID}>{name}</label>
+      <input id={`${ID}`} type="checkbox" onChange={() => onOptionChange(props, !isSelected)} checked={isSelected ?? undefined}/>
     </div>
   )
 }

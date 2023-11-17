@@ -13,19 +13,19 @@ export const Primary: Story = {
   args: {
     options: [
       {
-        groupName: "Europe",
+        name: "Europe",
         selected: true,
         options: [
-          { optionName: "Belgium" }, { optionName: "Netherlands" }
+          { name: "Belgium" }, { name: "Netherlands" }
         ]
       },
       {
-        groupName: "Africa",
+        name: "Africa",
         options: [
-          { optionName: "Morocco" }
+          { name: "Morocco" }
         ]
       },
-      { optionName: "Vatican City" }
+      { name: "Vatican City" }
     ]
   }
 }
