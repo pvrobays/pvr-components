@@ -7,16 +7,16 @@
 
 ## Properties
 
-| Property  | Attribute | Description | Type                                              | Default     |
-| --------- | --------- | ----------- | ------------------------------------------------- | ----------- |
-| `options` | --        |             | `(PvrMultiSelectGroup \| PvrMultiSelectOption)[]` | `undefined` |
+| Property  | Attribute | Description | Type                    | Default     |
+| --------- | --------- | ----------- | ----------------------- | ----------- |
+| `options` | --        |             | `PvrMultiSelectEntry[]` | `undefined` |
 
 
 ## Events
 
-| Event            | Description | Type                                                           |
-| ---------------- | ----------- | -------------------------------------------------------------- |
-| `optionsChanged` |             | `CustomEvent<(PvrMultiSelectGroup \| PvrMultiSelectOption)[]>` |
+| Event            | Description | Type                                 |
+| ---------------- | ----------- | ------------------------------------ |
+| `optionsChanged` |             | `CustomEvent<PvrMultiSelectEntry[]>` |
 
 
 ----------------------------------------------
