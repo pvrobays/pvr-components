@@ -1,15 +1,16 @@
 import './App.css';
-import {PvrButton, defineCustomElements, PvrComponent} from 'react-library';
+import {defineCustomElements, PvrAutocomplete, PvrButton, PvrIcon} from 'react-library';
 
 defineCustomElements();
 
 function App() {
-  return (
-    <div className="App">
-      <PvrComponent first="Your" last="Name" />
-      <PvrButton buttonType="secondary">Secondary button</PvrButton>
-    </div>
-  );
+    return (
+        <div className="App" data-theme="dark">
+            <PvrButton type="secondary">Secondary button</PvrButton>
+            <PvrAutocomplete></PvrAutocomplete>
+            <PvrIcon type="search"></PvrIcon>
+        </div>
+    );
 }
 
 export default App;
