@@ -1,11 +1,37 @@
-# `react-library`
+# PVR Components React
 
-> TODO: description
+Wrapper library around PVR Components for React.
 
-## Usage
+## Getting Started
 
+### Install dependencies
+
+```bash
+npm install
 ```
-const reactLibrary = require('react-library');
 
-// TODO: DEMONSTRATE API
+### Usage
+
+import the library
+
+```bash
+import { PvrButton } from 'pvr-components-react';
+
+function App() {
+    return (
+        <PvrButton type="secondary">Secondary button</PvrButton>
+    );
+}
+
+export default App;
 ```
+
+add the CSS
+
+```html
+<head>
+    <link rel="stylesheet" href="/node_modules/pvr-components/pvr-components.css"/>
+</head>
+```
+
+
