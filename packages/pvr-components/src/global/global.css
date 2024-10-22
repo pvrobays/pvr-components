@@ -10,6 +10,7 @@
 html,
 body {
   font-family: 'Roboto', sans-serif;
+  font-size: 13.6px;/* Base for rem values, (1rem = 13.6px, 2rem = 27.2px);*/
 }
 
 :root, [data-theme="light"] {
@@ -31,6 +32,8 @@ body {
   --font-color-disabled: rgba(0,0,0,0.5);
   --border-button-color: rgba(0,0,0,0.2);
   --icon-color: black;
+  --color-input-background: #2c404d;
+  --color-input-background-focus: #3d4f5b;
 }
 
 /*@media (prefers-color-scheme: dark) {*/
